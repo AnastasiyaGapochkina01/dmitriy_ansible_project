@@ -1,0 +1,6 @@
+[all]
+10.129.0.33 role=postgres
+10.129.0.48 role=nginx
+10.129.0.19 role=backend
+
+

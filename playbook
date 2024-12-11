@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: yes
+  roles:
+    - role: postgres
+      when: role == 'postgres'
+    - role: nginx
+      when: role == 'nginx'
+    - role: docker
+      when: role == 'backend'

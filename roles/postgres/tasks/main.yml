@@ -1,0 +1,25 @@
+---
+# tasks file for postgres
+- name: install dependencies
+  apt:
+    name: "{{ packages }}"
+    state: latest
+    update_cache: yes
+
+- name: Add postgres key
+  apt_key:
+    url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
+    state: present
+
+- name: Add repo
+  apt_repository:
+    repo: 'deb https://apt.postgresql.org/pub/repos/apt {{ ansible_distribution_release }}-pgdg main'
+    state: present
+    filename: postgresql
+    update_cache: yes
+
+- name: Install postgres
+  apt:
+    name: postgresql
+    state: latest
+    update_cache: yes
